@@ -2,7 +2,6 @@
 
 **Version:** 1.0.0  
 **Author:** Hemit Patel 
-**License:** MIT
 
 ## Overview
 
