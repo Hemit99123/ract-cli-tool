@@ -26,15 +26,6 @@ RACT ensures that the roles of users in a system are efficiently managed across 
 - **PostgreSQL**: The tool interacts with PostgreSQL to manage user roles.
 - **Node.js**: Ensure Node.js is installed on your system for running the tool.
 
-## Installation
-
-1. Clone or download the repository.
-2. Install dependencies using npm:
-
-```bash
-npm install
-```
-
 ## Configuration
 
 Before using the tool, ensure that you have a `creditionals.json` file in the root directory of the project. This file should contain your Redis and PostgreSQL connection URLs.
@@ -51,7 +42,7 @@ Before using the tool, ensure that you have a `creditionals.json` file in the ro
 - `redisUrl`: The URL of the Redis instance used for session management.
 - `sqlDbUrl`: The URL of the PostgreSQL instance used for user management.
 
-If the `creditionals.json` file is missing or incomplete, the tool will prompt you to enter the credentials when you run it.
+**If the `creditionals.json` file is missing or incomplete, the tool will prompt you to enter the credentials when you run it.**
 
 ## Usage
 
