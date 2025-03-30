@@ -1,14 +1,14 @@
 {
   "name": "ract-cli-tool",
-  "version": "1.0.2",
-  "main": "index.js",
+  "version": "1.0.3",
   "type": "module",
+  "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node ."
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "description": "",
   "bin": "./index.js",
   "dependencies": {
