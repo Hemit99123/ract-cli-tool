@@ -8,10 +8,7 @@
 <hr>
 <div align="center" style="line-height: 1;">
   <a href="https://ract-cli-tool.org"><img alt="Visit us"
-    src="https://img.shields.io/badge/🚀%RACT Demo-2F80ED?color=2F80ED&logoColor=white"/></a>
-  <a href="https://x.com/ract-cli-tool"><img alt="Twitter"
-    src="https://img.shields.io/badge/X@ract-cli-tool-1DA1F2?logo=x&logoColor=white"/></a>
-  <br>
+    src="https://img.shields.io/badge/🚀%20RACT Demo-2F80ED?color=2F80ED&logoColor=white"/></a>
   <a href="LICENSE-CODE"><img alt="Code License"
     src="https://img.shields.io/badge/Code%20License-MIT%202.0-00BFFF?color=00BFFF"/></a>
   <br>
