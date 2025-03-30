@@ -1,4 +1,6 @@
-import { readCredentials, saveCredentials } from "./src/services/credentials.js";
+#!/usr/bin/env node
+
+import { saveCredentials } from "./src/services/credentials.js";
 import { connectToServices } from "./src/services/connect.js";
 import { promptForCredentials } from "./src/prompts/credentials.js";
 import { promptForCommand } from "./src/prompts/command.js";
