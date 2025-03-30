@@ -61,7 +61,7 @@ Before using the tool, ensure that you have a `creditionals.json` file in the ro
 To run the tool, use `npx` from the command line:
 
 ```bash
-npx ract-cli-tool
+npx ract-cmd
 ```
 
 Upon running the tool, you'll be presented with a menu of options.
