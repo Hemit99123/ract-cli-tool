@@ -13,8 +13,8 @@
     src="https://img.shields.io/badge/Code%20License-MIT%202.0-00BFFF?color=00BFFF"/></a>
   <br>
 </div
-
-## Overview
+<br />
+<br />
 
 RACT is a command-line tool for managing **Role-Based Access Control (RBAC)** in systems that use **Redis** and **PostgreSQL** as backend services. It allows administrators to manage user roles (e.g., Admin, User) in a PostgreSQL database and handle user sessions in Redis. This tool can be used to:
 
