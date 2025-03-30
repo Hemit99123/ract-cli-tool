@@ -158,7 +158,7 @@ async function main() {
             type: 'list',
             name: 'command',
             message: chalk.blue('What would you like to do?'),
-            choices: ['add/update configs', 'update role', 'exit'],
+            choices: ['add/update configs', 'update role'],
         },
     ]);
 
@@ -181,11 +181,6 @@ async function main() {
                 },
             ]);
             await updateRole(emailPrompter.email);
-            break;
-        }
-        case 'exit': {
-            console.log(chalk.red("🛠️ Exiting tool..."));
-            programStatus = false;
             break;
         }
         default:
