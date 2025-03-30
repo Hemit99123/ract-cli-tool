@@ -6,6 +6,7 @@
   "scripts": {
     "start": "node ."
   },
+  "homepage": "https://www.ract-cli-tool.xyz/",
   "repository": {
     "type": "git",
     "url": "https://github.com/Hemit99123/ract-cli-tool"
