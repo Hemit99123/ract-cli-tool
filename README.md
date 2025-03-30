@@ -1,7 +1,21 @@
-# RACT CLI
+<!-- markdownlint-disable first-line-h1 -->
+<!-- markdownlint-disable html -->
+<!-- markdownlint-disable no-duplicate-header -->
 
-**Version:** 1.0.0  
-**Author:** Hemit Patel 
+<div align="center">
+  <img src="https://i.ibb.co/Y4HvSpQn/Screenshot-20250330-011418.png" width="20%" alt="RACT" />
+</div>
+<hr>
+<div align="center" style="line-height: 1;">
+  <a href="https://ract-cli-tool.org"><img alt="Visit us"
+    src="https://img.shields.io/badge/🚀%RACT Demo-2F80ED?color=2F80ED&logoColor=white"/></a>
+  <a href="https://x.com/ract-cli-tool"><img alt="Twitter"
+    src="https://img.shields.io/badge/X@ract-cli-tool-1DA1F2?logo=x&logoColor=white"/></a>
+  <br>
+  <a href="LICENSE-CODE"><img alt="Code License"
+    src="https://img.shields.io/badge/Code%20License-MIT%202.0-00BFFF?color=00BFFF"/></a>
+  <br>
+</div
 
 ## Overview
 
