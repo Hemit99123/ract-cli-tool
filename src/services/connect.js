@@ -5,6 +5,7 @@ import { readCredentials } from "./credentials.js";
 
 export let redisClient = null;
 export let sqlDbConnection = null;
+
 const { Client } = pg
 
 export async function connectToServices() {
