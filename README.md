@@ -8,7 +8,7 @@
 <hr>
 <div align="center" style="line-height: 1;">
   <a href="https://ract-cli-tool.org"><img alt="Visit us"
-    src="https://img.shields.io/badge/🚀%20RACT Demo-2F80ED?color=2F80ED&logoColor=white"/></a>
+    src="https://img.shields.io/badge/🚀%20RACT-2F80ED?color=2F80ED&logoColor=white"/></a>
   <a href="LICENSE-CODE"><img alt="Code License"
     src="https://img.shields.io/badge/Code%20License-MIT%202.0-00BFFF?color=00BFFF"/></a>
   <br>
