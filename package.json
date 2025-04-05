@@ -1,5 +1,5 @@
 {
-  "name": "ract-cmd",
+  "name": "ract-cli-tool",
   "version": "1.0.0",
   "type": "module",
   "main": "index.js",
