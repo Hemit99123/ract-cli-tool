@@ -1,7 +1,7 @@
 import chalk from "chalk";
 import { createSpinner } from "nanospinner";
 import inquirer from "inquirer";
-import { redisClient, sqlDbConnection } from "../services/connect.js";
+import { redisClient } from "../services/connect.js";
 
 export async function updateRole(email) {
     const spinner = createSpinner();
@@ -12,12 +12,23 @@ export async function updateRole(email) {
 
         if (amountOfKeys > 0) {
             await redisClient.del(...sessions);
-            console.log(chalk.green(`🗑️ Deleted ${amountOfKeys} keys with email ${email}`));
+            console.log(chalk.green(`🗑️ Deleted ${amountOfKeys} session keys for ${email}`));
         } else {
-            console.log(chalk.yellow('🚫 No keys found with the given email.'));
+            console.log(chalk.yellow('🚫 No session keys found with the given email.'));
         }
 
-        const result = await sqlDbConnection.query('SELECT * FROM "user" WHERE email = $1', [email]);
+        // Query user using RediSearch
+        const searchResult = await redisClient.ft.search('idx:user', `@email:{${email}}`);
+
+        if (searchResult.total === 0) {
+            spinner.error({ text: chalk.red('Email not found in Redis index.') });
+            return;
+        } else {
+            spinner.success({ text: chalk.green(`Email found in Redis: ${email}`) });
+        }
+
+        const userDoc = searchResult.documents[0];
+        const userId = userDoc.id; // This should be like "user:123"
 
         const prompter = await inquirer.prompt({
             type: "list",
@@ -25,29 +36,15 @@ export async function updateRole(email) {
             choices: ["User", "Admin"]
         });
 
-        if (result.rows.length > 0) {
-            spinner.success({ text: chalk.green(`Email found in PostgreSQL: ${email}`) });
-        } else {
-            spinner.error({ text: chalk.red('Email not found in either Redis or PostgreSQL.') });
-            return;
-        }
+        const loadingSpinner = createSpinner('Updating role in Redis...').start();
 
-        const loadingSpinner = createSpinner('Updating role in db...').start();
-
-        if (prompter.role === "User") {
-            await sqlDbConnection.query(
-                'UPDATE "user" SET role = $1 WHERE email = $2',
-                ['User', email]
-            );
-        } else {
-            await sqlDbConnection.query(
-                'UPDATE "user" SET role = $1 WHERE email = $2 ',
-                ['Admin', email]
-            );
-        }
+        await redisClient.hset(userId, {
+            role: prompter.role
+        });
 
         loadingSpinner.stop();
-        console.log(chalk.green(`✅ Role for ${email} updated successfully.`));
+        console.log(chalk.green(`✅ Role for ${email} updated successfully to ${prompter.role}.`));
+
     } catch (error) {
         console.log(chalk.red(error));
     }
