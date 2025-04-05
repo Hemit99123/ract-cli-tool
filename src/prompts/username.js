@@ -1,12 +1,12 @@
 import inquirer from "inquirer";
 import chalk from "chalk";
 
-export async function promptForEmail() {
+export async function prompterForUsername() {
     const answers = await inquirer.prompt([
         {
             type: 'input',
-            name: 'email',
-            message: chalk.blue("📧 Enter user's email")
+            name: 'username',
+            message: chalk.blue("📧 Enter username:")
         },
     ]);
     return answers;

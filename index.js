@@ -4,7 +4,7 @@ import { saveCredentials } from "./src/services/credentials.js";
 import { connectToServices } from "./src/services/connect.js";
 import { promptForCredentials } from "./src/prompts/credentials.js";
 import { promptForCommand } from "./src/prompts/command.js";
-import { promptForEmail } from "./src/prompts/email.js";
+import { prompterForUsername } from "./src/prompts/username.js";
 import { welcome } from "./src/utils/welcome.js";
 import { updateRole } from "./src/utils/updateRole.js";
 import chalk from "chalk";
@@ -23,8 +23,8 @@ async function main() {
         case 'update role': {
             await connectToServices();
 
-            const { email } = await promptForEmail();
-            await updateRole(email);
+            const { username } = await prompterForUsername();
+            await updateRole(username);
             break;
         }
         default:
