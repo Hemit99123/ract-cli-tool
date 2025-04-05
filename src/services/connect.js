@@ -1,7 +1,7 @@
 import { createClient } from "redis";
 import pg from "pg";
 import chalk from "chalk";
-import { readCredentials } from "./credentials.js";
+import { readCredentials } from "../utils/credentials.js";
 
 export let redisClient = null;
 export let sqlDbConnection = null;
