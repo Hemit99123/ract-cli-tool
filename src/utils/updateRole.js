@@ -12,13 +12,15 @@ export async function updateRole(username) {
         );
 
         const collectionOfSessions = searchResult.documents
+        const collectionLength = collectionOfSessions.length
 
-        // Go through eacb queried key and destroy it (for loop, repeated actions), destroying all sessions belonging to username
+        // Go through eacb queried key and destroy it, destroying all sessions belonging to username
 
-        if (collectionOfSessions.length !== 0) {
-            for (const session of collectionOfSessions) {
+        if (collectionLength !== 0) {
+
+            collectionOfSessions.forEach(async session => {
                 await redisClient.del(session.id)
-            }
+            })
     
             console.log(chalk.green("Successfully deleted sessions 🗑️"))
         } else {
