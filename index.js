@@ -40,8 +40,6 @@ async function run() {
         while (programStatus) {
             await main();
         }
-
-        console.log(chalk.green('✅ Exited gracefully.'));
     } catch (error) {
         console.error(chalk.red('Error:', error));
     }
