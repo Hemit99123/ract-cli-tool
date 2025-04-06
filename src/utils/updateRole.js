@@ -7,7 +7,7 @@ export async function updateRole(username) {
 
         // Query RedisJSON using RediSearch
         const searchResult = await redisClient.ft.search(
-            "idx:username", 
+            "idx:session", 
             username
         );
 
