@@ -1,12 +1,12 @@
 #!/usr/bin/env node
 
-import { saveCredentials } from "./src/utils/manageJSONRecord.js";
 import { connectToServices } from "./src/services/connect.js";
 import { promptForCredentials } from "./src/prompts/credentials.js";
 import { promptForCommand } from "./src/prompts/command.js";
 import { prompterForUsername } from "./src/prompts/username.js";
 import { welcome } from "./src/utils/welcome.js";
 import { updateRole } from "./src/utils/updateRole.js";
+import { saveCredentials } from "./src/utils/manageJSONRecord.js";
 import chalk from "chalk";
 
 let programStatus = true;
