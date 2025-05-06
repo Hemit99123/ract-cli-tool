@@ -22,8 +22,6 @@ jobs:
       - name: Install dependencies
         run: npm i
 
-      - name: Build project
-        run: npm run build
 
       - name: Check commit message for npm publish (CAN OPT OUT)
         run: |
