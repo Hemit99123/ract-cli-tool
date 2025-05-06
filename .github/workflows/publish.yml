@@ -10,19 +10,8 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '20'
-          registry-url: 'https://registry.npmjs.org/'
-
-      - name: Install dependencies
-        run: npm i
-
-      - name: Check commit message for npm publish (CAN OPT OUT)
+    - name: Check commit message for npm publish (CAN OPT OUT)
         run: |
           COMMIT_MESSAGE=$(git log -1 --pretty=%B)
           echo "Commit message: $COMMIT_MESSAGE"
@@ -34,6 +23,18 @@ jobs:
             echo "Commit message does not contain 'Publish', skipping npm publish."
             exit 0  # Exit successfully without publishing
           fi
+          
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          registry-url: 'https://registry.npmjs.org/'
+
+      - name: Install dependencies
+        run: npm i
 
       - name: Publish to npm
         run: npm publish
