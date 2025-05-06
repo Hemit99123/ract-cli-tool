@@ -22,7 +22,6 @@ jobs:
       - name: Install dependencies
         run: npm i
 
-
       - name: Check commit message for npm publish (CAN OPT OUT)
         run: |
           COMMIT_MESSAGE=$(git log -1 --pretty=%B)
