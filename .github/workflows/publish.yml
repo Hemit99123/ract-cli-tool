@@ -19,18 +19,19 @@ jobs:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org/'
 
-      - name: Check commit message for npm publish (CAN OPT OUT)
+      - name: Check commit message for npm publish (must start with publish variant)
         id: check_commit
         run: |
           COMMIT_MESSAGE=$(git log -1 --pretty=%B)
           echo "Commit message: $COMMIT_MESSAGE"
-          if [[ "$COMMIT_MESSAGE" == *"Publish:"* ]]; then
+          if echo "$COMMIT_MESSAGE" | grep -iE '^?publish?:'; then
             echo "should_publish=true" >> $GITHUB_OUTPUT
           else
             echo "should_publish=false" >> $GITHUB_OUTPUT
           fi
 
       - name: Install dependencies
+        if: steps.check_commit.outputs.should_publish == 'true'
         run: npm install
 
       - name: Publish to npm
