@@ -10,20 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-
-    - name: Check commit message for npm publish (CAN OPT OUT)
-        run: |
-          COMMIT_MESSAGE=$(git log -1 --pretty=%B)
-          echo "Commit message: $COMMIT_MESSAGE"
-
-          # Only proceed to npm publish if commit message contains 'Publish:'
-          if [[ "$COMMIT_MESSAGE" == *"Publish:"* ]]; then
-            echo "Valid commit message, proceeding with npm publish..."
-          else
-            echo "Commit message does not contain 'Publish', skipping npm publish."
-            exit 0  # Exit successfully without publishing
-          fi
-          
       - name: Checkout code
         uses: actions/checkout@v3
 
@@ -33,11 +19,22 @@ jobs:
           node-version: '20'
           registry-url: 'https://registry.npmjs.org/'
 
+      - name: Check commit message for npm publish (CAN OPT OUT)
+        id: check_commit
+        run: |
+          COMMIT_MESSAGE=$(git log -1 --pretty=%B)
+          echo "Commit message: $COMMIT_MESSAGE"
+          if [[ "$COMMIT_MESSAGE" == *"Publish:"* ]]; then
+            echo "should_publish=true" >> $GITHUB_OUTPUT
+          else
+            echo "should_publish=false" >> $GITHUB_OUTPUT
+          fi
+
       - name: Install dependencies
-        run: npm i
+        run: npm install
 
       - name: Publish to npm
+        if: steps.check_commit.outputs.should_publish == 'true'
         run: npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-        if: success() && steps.Check_commit_message.outputs.result == 'Publish'
