@@ -10,6 +10,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
       - name: Check commit message for npm publish (must start with publish variant)
         id: check_commit
         run: |
@@ -20,9 +23,6 @@ jobs:
           else
             echo "should_publish=false" >> $GITHUB_OUTPUT
           fi
-
-      - name: Checkout code
-        uses: actions/checkout@v3
 
       - name: Set up Node.js
         uses: actions/setup-node@v4
