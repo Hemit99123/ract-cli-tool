@@ -4,7 +4,8 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "start": "node ."
+    "start": "node .",
+    "lint": "eslint ."
   },
   "homepage": "https://www.ract-cli-tool.xyz/",
   "repository": {
