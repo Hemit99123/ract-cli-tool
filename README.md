@@ -76,3 +76,12 @@ Upon running the tool, you'll be presented with a menu of options.
    - The tool will check if the email exists in PostgreSQL.
    - You will be prompted to select the role (User or Admin) for the email.
    - The role in PostgreSQL will be updated accordingly.
+
+### Contributions
+
+The RACT CLI Tool is open-source and welcomes contributions from the developer community! To ensure your contributions are reviewed by the StockSavvy team:
+
+1. Create a development branch with the following style: `YOURNAME/WHAT-YOUR-BRANCH-DOES`
+2. Create a PR to merge your branch
+3. Your PR undergoes a code-review
+4. Once the code-review is accecpted, merge with the `Publish:` prefix
